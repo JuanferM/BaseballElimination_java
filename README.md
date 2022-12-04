@@ -5,14 +5,11 @@ Ford-Fulkerson flow network algorithm to solve Baseball Elimination Problem in J
 JDK 1.7 (Java compiler ```javac``` and interpreter ```java``` versions should be 1.7)
 
 # How to compile
-```bash
-> javac Baseball.java FlowNetwork.java
-```
+	javac Baseball.java FlowNetwork.java
 
 # How to run
-```bash
-> java Baseball path_to_file
-```
+	java Baseball path_to_file
+
 Where _path_to_file_ is the path to the instance to run.
 
 # Instance format
@@ -33,9 +30,9 @@ An instance (a file) should have the following format.
 ```
 
 ## Example of execution
-```
-> java Baseball didactic.txt
+	java Baseball didactic.txt
 
+```
 Noms des équipes :
 	New York Yankees
 	Boston Red Sox
