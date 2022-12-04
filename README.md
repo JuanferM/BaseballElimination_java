@@ -11,9 +11,9 @@ javac Baseball.java FlowNetwork.java
 
 # How to run
 ```bash
-java Baseball instance
+java Baseball path_to_file
 ```
-Where _instance_ is a filename.
+Where _path_to_file_ is the path to the instance to run.
 
 # Instance format
 An instance (a file) should have the following format.
@@ -23,11 +23,35 @@ An instance (a file) should have the following format.
   team to play and, for every team _j_ the number of games left for team _i_ to play against _j_ (with 
   _j_ an integer from 1 to _n_, also when _i_=_j_ then the number of games left is -1 by convention)
   
-## Example of instance
+## Example of instance (didactic.txt)
 ```
 4
 1 New-York-Yankees  93 8 -1 1 6 1
 2 Boston-Red-Sox    89 4 1 -1 0 3
 3 Toronto-Blue-Jays 88 7 6 0 -1 1
 4 Baltimore-Orioles 86 5 1 3 1 -1
+```
+
+## Example of execution
+```
+java Baseball didactic.txt
+
+Noms des équipes :
+	New York Yankees
+	Boston Red Sox
+	Toronto Blue Jays
+	Baltimore Orioles
+
+Début de la méthode...
+
+Les Boston Red Sox sont éliminés.
+
+Les Baltimore Orioles sont éliminés.
+
+Fin de la méthode.
+
+Équipes restantes : 
+	New York Yankees
+	Toronto Blue Jays
+
 ```
