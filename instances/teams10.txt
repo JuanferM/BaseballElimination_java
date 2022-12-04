@@ -1,0 +1,11 @@
+10
+1  Atlanta-Braves           0 63 -1 9 9 9 9 9 9 9 0 0
+2  Boston-Red-Sox           0 63 9 -1 9 9 9 9 9 9 0 0
+3  Chicago-Cubs             0 63 9 9 -1 9 9 9 9 9 0 0
+4  Cleveland-Guardians      0 63 9 9 9 -1 9 9 9 9 0 0
+5  Dallas-Texas-Rangers     0 63 9 9 9 9 -1 9 9 9 0 0
+7  Denver-Colorado-Rookies  0 63 9 9 9 9 9 -1 9 9 0 0
+6  Detroit-Tigers           0 63 9 9 9 9 9 9 -1 9 0 0
+8  San-Francisco-Giants     0 63 9 9 9 9 9 9 9 -1 0 0
+9  Houston-Astros           31 0 0 0 0 0 0 0 0 0 -1 0
+10 Indianapolis-Indians     32 0 0 0 0 0 0 0 0 0 0 -1
