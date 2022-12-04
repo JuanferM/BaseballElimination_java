@@ -31,7 +31,9 @@ An instance (a file) should have the following format.
 
 ## Example of execution
 Command:
+
 	java Baseball didactic.txt
+	
 Output:
 ```
 Noms des équipes :
