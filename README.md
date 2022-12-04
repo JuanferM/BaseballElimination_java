@@ -11,9 +11,9 @@ javac Baseball.java FlowNetwork.java
 
 # How to run
 ```bash
-java Baseball <instance>
+java Baseball instance
 ```
-Where _<instance>_ is a filename.
+Where _instance_ is a filename.
 
 # Instance format
 An instance (a file) should have the following format.
@@ -26,8 +26,8 @@ An instance (a file) should have the following format.
 ## Example of instance
 ```
 4
-1 New-York-Yankees 93 8 -1 1 6 1
-2 Boston-Red-Sox 89 4 1 -1 0 3
+1 New-York-Yankees  93 8 -1 1 6 1
+2 Boston-Red-Sox    89 4 1 -1 0 3
 3 Toronto-Blue-Jays 88 7 6 0 -1 1
 4 Baltimore-Orioles 86 5 1 3 1 -1
 ```
