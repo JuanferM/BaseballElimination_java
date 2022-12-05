@@ -1,0 +1,25 @@
+24
+1   Atlanta-Braves          81 15 -1 2 4 0 3 0 1 0 1 0 0 0 0 1 1 1 0 1 0 0 0 0 0 0
+2   Boston-Red-Sox          75 12 2 -1 0 3 1 2 0 0 0 1 1 0 0 0 0 0 0 1 0 0 1 0 0 0
+3   Chicago-Cubs            79 15 4 0 -1 3 0 1 3 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0
+4   Cleveland-Guardians     74 17 0 3 3 -1 3 2 0 0 0 4 0 1 0 0 0 0 1 0 0 0 0 0 0 0
+5   Dallas-Texas-Rangers    66 14 3 1 0 3 -1 0 0 1 1 0 0 0 1 0 2 1 1 0 0 0 0 0 0 0
+6   Denver-Colorado-Rookies 71 11 0 2 1 2 0 -1 0 1 1 0 0 1 0 1 0 0 1 0 0 0 1 0 0 0
+7   Detroit-Tigers          69 22 1 0 3 0 0 0 -1 5 3 1 3 2 0 0 1 0 0 1 0 2 0 0 0 0
+8   San-Francisco-Giants    68 13 0 0 0 0 1 1 5 -1 3 2 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+9   Houston-Astros          72 18 1 0 1 0 1 1 3 3 -1 2 3 0 0 0 0 0 0 0 2 0 0 0 1 0
+10  Indianapolis-Indians    65 16 0 1 0 4 0 0 1 2 2 -1 2 1 1 0 0 0 0 0 0 0 0 1 0 1
+11  Los-Angeles-Angels      80 13 0 1 1 0 0 0 3 0 3 2 -1 1 0 0 0 0 1 0 0 0 0 1 0 0
+12  Los-Angeles-Dodgers     74  8 0 0 0 1 0 1 2 0 0 1 1 -1 1 1 0 0 0 0 0 0 0 0 0 0
+13  Memphis-Red-Birds       70 11 0 0 0 0 1 0 0 0 0 1 0 1 -1 0 0 3 2 1 0 0 1 0 0 1
+14  Miami-Marlins           69 15 1 0 1 0 0 1 0 0 0 0 0 1 0 -1 1 1 4 2 0 2 0 0 1 0
+15  Milwaukee-Brewers       83 13 1 0 1 0 2 0 1 0 0 0 0 0 0 1 -1 4 1 0 0 1 0 0 0 1
+16  Minnesota-Twins         82 21 1 0 0 0 1 0 0 0 0 0 0 0 3 1 4 -1 3 5 0 0 2 0 1 0
+17  Trenton-Thunder         55 20 0 0 0 1 1 1 0 0 0 0 1 0 2 4 1 3 -1 3 1 0 0 1 0 1
+18  New_Orleans-Pelicans    81 17 1 1 0 0 0 0 1 1 0 0 0 0 1 2 0 5 3 -1 0 0 1 1 0 0
+19  New_York_Yankees        71 20 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 1 0 -1 2 4 2 4 5
+20  Orlando-Rays            68 10 0 0 0 0 0 0 2 0 0 0 0 0 0 2 1 0 0 0 2 -1 1 1 0 1
+21  Philadelphia-Phillies   82 20 0 1 0 0 0 1 0 0 0 0 0 0 1 0 0 2 0 1 4 1 -1 6 2 1
+22  Arizona-Diamondbacks    76 17 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 1 1 2 1 6 -1 0 4
+23  Portand-Pickles         84 15 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 1 0 0 4 0 2 0 -1 6
+24  Sacramento-River-Cats   62 21 0 0 0 0 0 0 0 0 0 1 0 0 1 0 1 0 1 0 5 1 1 4 6 -1
