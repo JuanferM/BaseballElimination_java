@@ -44,7 +44,7 @@ class FlowNetwork {
     FlowNetwork(
             int t,
             int n,
-            int[][] Data,
+            int[][] data,
             boolean[] eliminated){
         this.n = n;
         // Loop variables
@@ -66,8 +66,8 @@ class FlowNetwork {
                     // The edges from the source s and the matches
                     // (by convention, s = 0)
                     // (matches are sorted in order of minimum index : 1-2, 1-3, 2-5, 2-6, ...)
-                    this.G += Data[i][j+2];
-                    this.adj_list.get(0).add(new Edge(l, Data[i][j+2], 0));
+                    this.G += data[i][j+2];
+                    this.adj_list.get(0).add(new Edge(l, data[i][j+2], 0));
                     // ---------------- SECOND TYPE OF EDGE ----------------
                     // The edges between matches and team
                     this.adj_list.get(l).add(new Edge(i+matches, Integer.MAX_VALUE, 0));
@@ -78,8 +78,8 @@ class FlowNetwork {
             // ---------------- THIRD TYPE OF EDGE ----------------
             // The edges between teams and the pit
             // (by convention, p = ((n-1)*(n-2)/2) + n)
-            this.adj_list.get(i+matches+1).add(new Edge(sink, Data[t][0]+Data[t][1]-Data[i][0], 0));
-            gi.add(Data[i][1]);
+            this.adj_list.get(i+matches+1).add(new Edge(sink, data[t][0]+data[t][1]-data[i][0], 0));
+            gi.add(data[i][1]);
         }
     }
 
@@ -167,21 +167,17 @@ class FlowNetwork {
 
     public void useEliminationLemma(
             int t,
+            int[][] data,
             String[] names,
             boolean[] eliminated) {
-        int i = 0, idx = -1, matches = ((this.n-1)*(this.n-2)/2);
-        boolean toSink = true;
+        int i = 0;
 
-        for(i = matches+n-1; i > 0 && toSink; i--){
-            // For all arcs going into the pit, check if the flow-g(i)
-            // is negative. If it is negative then the corresponding team
-            // is eliminated
-            idx = i-matches-1;
-            if(this.adj_list.get(i).get(0).dest == matches+this.n
-            && this.adj_list.get(i).get(0).cap-gi.get(idx) >= 0 && idx != t) {
-                eliminated[idx] = true;
-                System.out.println("D'après le lemme, les " + names[idx] + " sont aussi éliminés.");
-            } else toSink = false;
+        for(i = 0; i < this.n; i++){
+            if(i != t && !eliminated[i]
+            && data[i][0] + data[i][1] <= data[t][0] + data[t][1]) {
+                eliminated[i] = true;
+                System.out.println("D'après le lemme, les " + names[i] + " sont aussi éliminés.");
+            }
         }
 
         System.out.println();

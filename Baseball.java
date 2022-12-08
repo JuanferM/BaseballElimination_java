@@ -59,6 +59,7 @@ class Baseball {
      */
     public static void TestEliminationEquipe(
         int t,
+        int[][] data,
         String[] names,
         FlowNetwork R,
         boolean[] eliminated) {
@@ -68,7 +69,7 @@ class Baseball {
         }
 
         if(eliminated[t])
-            R.useEliminationLemma(t, names, eliminated);
+            R.useEliminationLemma(t, data, names, eliminated);
     }
 
 
@@ -82,8 +83,8 @@ class Baseball {
      */
     public static void TestEliminationToutes(
         int n,
-        String[] names,
         int[][] data,
+        String[] names,
         boolean[] eliminated) {
         // Loop variables
         int i;
@@ -92,7 +93,7 @@ class Baseball {
             // Construct the network from data
             if(!eliminated[i]) {
                 FlowNetwork R = ConstructionReseau(i, n, data, eliminated);
-                TestEliminationEquipe(i, names, R, eliminated);
+                TestEliminationEquipe(i, data, names, R, eliminated);
             }
         }
 
@@ -132,7 +133,7 @@ class Baseball {
 
                 System.out.println(ANSI_RESET + "\nDébut de la méthode...\n" + ANSI_RED);
 
-                TestEliminationToutes(n, names, data, eliminated);
+                TestEliminationToutes(n, data, names, eliminated);
 
                 System.out.println(ANSI_RESET + "Fin de la méthode.\n");
 
