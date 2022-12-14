@@ -45,13 +45,11 @@ Noms des équipes :
 Début de la méthode...
 
 Les Boston Red Sox sont éliminés.
-
-Les Baltimore Orioles sont éliminés.
+D'après le lemme, les Baltimore Orioles sont aussi éliminés.
 
 Fin de la méthode.
 
 Équipes restantes : 
 	New York Yankees
 	Toronto Blue Jays
-
 ```
