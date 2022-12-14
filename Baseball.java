@@ -41,7 +41,7 @@ class Baseball {
      * n            : number of rows
      * data         : matrix containing the number of games the teams have won,
      *                have to play and against who they gotta play them with
-     * elimiated    : vector of booleans at true whenever a team is eliminated
+     * eliminated   : vector of booleans at true whenever a team is eliminated
      */
     public static FlowNetwork ConstructionReseau(
             int t,
@@ -54,6 +54,9 @@ class Baseball {
     /* Do test for team t
      *
      * t            : team index
+     * data         : matrix containing the number of games the teams have won,
+     *                have to play and against who they gotta play them with
+     * names        : names of the teams
      * R            : the flow network for team t
      * eliminated   : each team status
      */
@@ -76,9 +79,9 @@ class Baseball {
     /* Solve the baseball elimination problem on the data provided
      *
      * n            : number of teams
-     * names        : team names
      * data         : matrix containing the number of games the teams have won,
      *                have to play and against who they gotta play them with
+     * names        : team names
      * eliminated   : each team status
      */
     public static void TestEliminationToutes(

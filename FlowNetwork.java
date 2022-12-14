@@ -32,7 +32,7 @@ class FlowNetwork {
 
     private int source = 0, sink = -1; // Source and sink
     private int maxFlow = -1; // Maximum flow value
-    private boolean[] visited; // Visited nodes
+    private int[] visited; // Visited nodes
     private int G = 0; // Sum of capacities of the arcs out of the source
     // Games left to play for team i
     private ArrayList<Integer> gi = new ArrayList<Integer>();
@@ -48,8 +48,8 @@ class FlowNetwork {
             boolean[] eliminated){
         this.n = n;
         // Loop variables
-        int i = 0, j = 0, k = 0, l = 0;
-        int matches = ((n-1)*(n-2)/2);
+        int matches = (n-1)*(n-2)/2;
+        int i = 0, j = 0, k = 0, l = matches-1, m = 0;
 
         // Set size of adjacency list and initialize it
         this.sink = matches + n;
@@ -57,29 +57,32 @@ class FlowNetwork {
         for(k = 0; k < sink+1; k++)
             this.adj_list.add(k, new ArrayList<Edge>());
 
-        for(i = 0; i < n-1; i++){
+        for(i = 0, k = 0; i < n-1; i++){
+            l++; m = l;
             for(j = i+1; j < n; j++){
                 if(i != t && j != t && !eliminated[i] && !eliminated[j]){
-                    l++;
-                    // We have three types of edges :
+                    k++; m++;
                     // ---------------- FIRST TYPE OF EDGE ----------------
                     // The edges from the source s and the matches
                     // (by convention, s = 0)
                     // (matches are sorted in order of minimum index : 1-2, 1-3, 2-5, 2-6, ...)
+                    this.adj_list.get(0).add(new Edge(k, data[i][j+2], 0));
                     this.G += data[i][j+2];
-                    this.adj_list.get(0).add(new Edge(l, data[i][j+2], 0));
+
                     // ---------------- SECOND TYPE OF EDGE ----------------
                     // The edges between matches and team
-                    this.adj_list.get(l).add(new Edge(i+matches, Integer.MAX_VALUE, 0));
-                    this.adj_list.get(l).add(new Edge(j+matches, Integer.MAX_VALUE, 0));
-                    k = j;
+                    this.adj_list.get(k).add(new Edge(l, Integer.MAX_VALUE, 0));
+                    this.adj_list.get(k).add(new Edge(m, Integer.MAX_VALUE, 0));
+                }
+
+                if(i == 0) {
+                    // ---------------- THIRD TYPE OF EDGE ----------------
+                    // The edges between teams and the pit
+                    // (by convention, p = ((n-1)*(n-2)/2) + n)
+                    this.adj_list.get(matches+j).add(new Edge(sink, data[t][0]+data[t][1]-data[i][0], 0));
                 }
             }
-            // ---------------- THIRD TYPE OF EDGE ----------------
-            // The edges between teams and the pit
-            // (by convention, p = ((n-1)*(n-2)/2) + n)
-            this.adj_list.get(i+matches+1).add(new Edge(sink, data[t][0]+data[t][1]-data[i][0], 0));
-            gi.add(data[i][1]);
+
         }
     }
 
@@ -95,7 +98,6 @@ class FlowNetwork {
         else {
             int flow = -1; // Flow returned by the DFS procedure
             int N = this.sink+1;
-            this.visited = new boolean[N];
             this.maxFlow = 0; // Maximum flow
 
             // Find max flow using Depth First Search (DFS)
@@ -125,15 +127,15 @@ class FlowNetwork {
     private int DFS(int node, int flow) {
         // When we reach the sink, return augmented path flow
         if(node == this.sink) return flow;
-        int subflow = -1;
+        int subflow = -1, limit = -1;
 
         // Get list of edges of the node
         List<Edge> edges = this.adj_list.get(node);
-        this.visited[node] = true; // We mark the node as visited
 
         for(Edge e : edges) {
-           // If we found an augmenting path
-            if(visited[e.dest] != true && e.cap-e.flow > 0) {
+            limit = (node <= (this.n-1)*(this.n-2)/2) ? 2 : 1;
+            // If we found an augmenting path
+            if(e.cap-e.flow > 0) {
                 // Update flow and run DFS from the node
                 flow = Math.min(e.cap-e.flow, flow);
                 subflow = DFS(e.dest, flow);
@@ -148,6 +150,7 @@ class FlowNetwork {
 
                     return subflow;
                 }
+
             }
         }
 
@@ -155,6 +158,9 @@ class FlowNetwork {
         return 0;
     }
 
+    /* Computes max flow and checks if all the paths from the
+     * source are saturated
+     */
     public boolean flowExists(){
         // If already solved then check if maximum flow corresponds
         // to the sum of the capactities of the arcs out of the source
@@ -165,6 +171,17 @@ class FlowNetwork {
         }
     }
 
+    /*
+     * Called when a team t is eliminated. Check if other teams are
+     * eliminated with a lemma.
+     *
+     * t            : the index of the team eliminated
+     * data         : matrix containing the number of games the teams have
+     *                won, have to play and against which team they have to
+     *                play them
+     * names        : team names
+     * eliminated   : vector of booleans at true whenever a team is eliminated
+     */
     public void useEliminationLemma(
             int t,
             int[][] data,
@@ -173,7 +190,7 @@ class FlowNetwork {
         int i = 0;
 
         for(i = 0; i < this.n; i++){
-            if(i != t && !eliminated[i]
+            if(i != t && !eliminated[i] && eliminated[t]
             && data[i][0] + data[i][1] <= data[t][0] + data[t][1]) {
                 eliminated[i] = true;
                 System.out.println("D'après le lemme, les " + names[i] + " sont aussi éliminés.");
