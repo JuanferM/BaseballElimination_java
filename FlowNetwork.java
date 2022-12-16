@@ -91,8 +91,8 @@ class FlowNetwork {
         return this.adj_list;
     }
 
-    /* Returns maximum flow */
-    public int getMaxFlow() {
+    /* Returns maximum flow with Ford-Fulkerson algorithm */
+    public int FordFulkerson() {
         /* If the problem is already solved no need to solve it again */
         if(this.solved) return this.maxFlow;
         else {
@@ -166,7 +166,7 @@ class FlowNetwork {
         // to the sum of the capactities of the arcs out of the source
         if(this.solved) return this.maxFlow == this.G;
         else {
-            this.getMaxFlow();
+            this.FordFulkerson();
             return this.maxFlow == this.G;
         }
     }
